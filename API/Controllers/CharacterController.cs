@@ -1,12 +1,15 @@
 ﻿using API.Dtos.Character;
 using API.Models;
 using API.Services.CharacterService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CharacterController : ControllerBase
@@ -18,10 +21,12 @@ namespace API.Controllers
             _characterService = characterService;
         }
 
+        //[AllowAnonymous]
         [HttpGet]
         [Route("GetAll")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Get()
         {
+           
             return Ok(await _characterService.GetAllCharactersAsync());
         }
 
