@@ -55,5 +55,11 @@ namespace API.Controllers
         {
             return Ok(await _characterService.DeleteCharactersAsync(id));
         }
+
+        [HttpPost("Skill")]
+        public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> AddCharacterSkill(AddCharacterSkillDto newCharacterSkill)
+        {
+            return Ok(await _characterService.AddCharacterSkillAsync(newCharacterSkill));
+        }
     }
 }
