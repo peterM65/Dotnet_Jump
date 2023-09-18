@@ -1,5 +1,6 @@
 using API.Data;
 using API.Services.CharacterService;
+using API.Services.FightService;
 using API.Services.WeaponService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +47,7 @@ namespace API
             builder.Services.AddScoped<ICharacterService, CharacterService>();
             builder.Services.AddScoped<IAuthRepository, AuthRepository>();
             builder.Services.AddScoped<IWeaponService, WeaponService>();
+            builder.Services.AddScoped<IFightService, FightService>();
 
 
             #region JWT

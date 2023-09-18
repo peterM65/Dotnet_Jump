@@ -1,4 +1,5 @@
 ﻿using API.Dtos.Character;
+using API.Dtos.Fight;
 using API.Dtos.Skill;
 using API.Dtos.Weapon;
 using API.Models;
@@ -14,6 +15,7 @@ namespace API
             CreateMap<AddCharacterDto,Character>().ReverseMap();
             CreateMap<Weapon,GetWeaponDto>().ReverseMap();
             CreateMap<Skill, GetSkillDto>().ReverseMap();
+            CreateMap<Character, HighscoreDto>();
         }
     }
 }
